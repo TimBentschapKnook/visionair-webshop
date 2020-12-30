@@ -2619,8 +2619,112 @@ html main section table tbody tr td, body main section table tbody tr td {
   transition: background 0.3s;
   color: #000000;
 }
+html main section table tbody tr td .button, body main section table tbody tr td .button {
+  position: relative;
+  float: left;
+  cursor: pointer;
+}
 html main section table tbody tr:hover, body main section table tbody tr:hover {
   background: #cfd6d9;
+}
+html main section .button, body main section .button {
+  position: relative;
+  float: right;
+  padding: 6px;
+  margin: 10px 0;
+  font-size: 14px;
+  border-radius: 2px;
+  color: rgba(0, 0, 0, 0.65);
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  display: flex;
+  cursor: pointer;
+}
+html main.auth, body main.auth {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../images/background-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+html main.auth .overlay, body main.auth .overlay {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+html main.auth .box, body main.auth .box {
+  position: fixed;
+  left: 25vw;
+  width: 45vw;
+  height: auto;
+  background: #fff;
+  top: 13%;
+}
+html main.auth .box .header, body main.auth .box .header {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0 20px;
+  background-color: #d8ae72;
+  color: #ffffff;
+}
+html main.auth .box .header h3, body main.auth .box .header h3 {
+  position: relative;
+  float: left;
+  text-transform: capitalize;
+  color: white;
+  text-align: left;
+  width: 100%;
+  font-weight: 700;
+}
+html main.auth .box .form, body main.auth .box .form {
+  position: relative;
+  float: left;
+  width: 100%;
+  margin: 10px 0;
+}
+html main.auth .box .form form, body main.auth .box .form form {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+html main.auth .box .form form label, body main.auth .box .form form label {
+  position: relative;
+  float: left;
+  width: 100%;
+  text-transform: capitalize;
+  margin: 0;
+  padding: 0;
+}
+html main.auth .box .form form input[type=text], html main.auth .box .form form input[type=password], body main.auth .box .form form input[type=text], body main.auth .box .form form input[type=password] {
+  border: 1px #aab2bd solid;
+  color: #000000;
+  padding: 4px 5px 3px 5px;
+  width: 100%;
+  height: 32px;
+}
+html main.auth .box .form form .button, body main.auth .box .form form .button {
+  position: relative;
+  float: right;
+  width: auto;
+  margin: 20px 0 10px 0;
+  padding: 10px 15px;
+  border: none;
+  background-color: #a3b8bd;
+  color: #ffffff;
+  cursor: pointer;
+}
+html main.auth .box .form form .button.primary, body main.auth .box .form form .button.primary {
+  background-color: #d8ae72;
+}
+html main.auth .box .form form .button:first-child, body main.auth .box .form form .button:first-child {
+  margin-left: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

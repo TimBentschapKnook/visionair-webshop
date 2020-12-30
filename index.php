@@ -20,6 +20,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 $user = new User("Tim", "Bentschap Knook", '0638928320', "timbknook@gmail.com", "Diesel.com3");
 
 if (!$user->isAuthenticated()) {
+    require_once "view/layouts/auth.php";
+} else {
     require_once "view/layouts/dashboard.php";
 }
 

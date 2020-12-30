@@ -14,6 +14,12 @@
                 </span>
             </a>
         </li>
+        <li id="orders">
+            <a href="?page=view/orders.php">
+                <span class="material-icons">
+                    add_shopping_cart
+                </span>
+            </a>
+        </li>
     </ul>
 </nav>
-

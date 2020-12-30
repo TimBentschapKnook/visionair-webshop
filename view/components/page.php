@@ -2,10 +2,11 @@
 // VISIONair pages
 $home       = 'view/home.php';
 $customers  = 'view/customers.php';
+$orders  = 'view/orders.php';
 
 
 $page = isset($_GET['page'])?$_GET['page']:$home;
-$pages = array($home, $customers);
+$pages = array($home, $customers, $orders);
 
 if (!empty($page))
 {
