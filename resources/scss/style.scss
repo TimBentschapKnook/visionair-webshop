@@ -1,0 +1,139 @@
+
+@import "bootstrap-grid";
+@import "fonts";
+
+$main_color       : #d8ae72;
+$text_color       : #000000;
+$box_color        : #a3b8bd;
+$box_color_hover  : #91a3a9;
+$box_color_active : #7e8d94;
+$table_hover      : #cfd6d9;
+$white            : #ffffff;
+
+$nav_size         : 50px;
+
+$elsie            : 'Elsie';
+$ubuntu           : 'Ubuntu', sans-serif;
+
+html, body {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  text-decoration: none;
+  line-height: 30px;
+  list-style-type: none;
+  font-size: 16px;
+  font-family: $ubuntu;
+  font-weight: 400;
+  header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: $nav_size;
+    height: 100vh;
+    background-color: $box_color;
+    nav {
+      position: relative;
+      float: left;
+      width: 100%;
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        li {
+          position: relative;
+          float: left;
+          width: 100%;
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          &:hover {
+            background-color: $box_color_hover;
+          }
+          &.active {
+            background-color: $box_color_active;
+            a {
+              color: $main_color;
+            }
+          }
+          a {
+            position: relative;
+            float: left;
+            width: 100%;
+            height: 100%;
+            color: $white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+  main {
+    position: relative;
+    float: right;
+    width: calc(100% - #{$nav_size});
+    .header {
+      position: relative;
+      float: left;
+      width: 100%;
+      height: $nav_size;
+      padding: 0;
+      margin: 0;
+      background-color: $white;
+      -webkit-box-shadow: 0 0 5px 0 rgba(50,50,50,0.5);
+      -moz-box-shadow: 0 0 5px 0 rgba(50,50,50,0.5);
+      box-shadow: 0 0 5px 0 #32323280;
+    }
+    section {
+      position: relative;
+      float: left;
+      width: 100%;
+      padding: 30px 0 0 0;
+      table {
+        width: 100%;
+        text-align: left;
+        border-radius: 4px 4px 0 0;
+        border-collapse: separate;
+        border-spacing: 0;
+        thead {
+          background: $box_color;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+          border-bottom: 1px solid #e8e8e8;
+          tr {
+            th {
+              color: $white;
+              font-weight: 500;
+              text-align: left;
+              transition: background .3s ease;
+              padding: 16px;
+              overflow-wrap: break-word;
+            }
+          }
+        }
+        tbody {
+          tr {
+            td {
+              padding: 16px;
+              overflow-wrap: break-word;
+              border-bottom: 1px solid #e8e8e8;
+              transition: background .3s;
+              color: $text_color;
+            }
+            &:hover {
+              background: $table_hover;
+            }
+          }
+        }
+      }
+    }
+  }
+}

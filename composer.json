@@ -1,0 +1,17 @@
+{
+    "name": "timbk/visionair-webshop",
+    "authors": [
+        {
+            "name": "TimBentschapKnook",
+            "email": "timbknook@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "."
+        }
+    },
+    "require": {
+      "ext-pdo": "*"
+    }
+}
