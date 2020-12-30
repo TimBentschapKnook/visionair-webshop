@@ -83,11 +83,13 @@ class User
 //        }
     }
 
-    public function exists() {
+    public function exists(): bool
+    {
         return !empty($this->data);
     }
 
-    public function data(){
+    public function data(): ?object
+    {
         return $this->data;
     }
 

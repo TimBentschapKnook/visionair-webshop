@@ -27,7 +27,7 @@ class Database
         }
     }
 
-    public static function getInstance()
+    public static function getInstance(): ?Database
     {
         if (!isset(self::$instance))
         {
@@ -36,7 +36,7 @@ class Database
         return self::$instance;
     }
 
-    public function query($sql, $params = array())
+    public function query($sql, $params = array()): Database
     {
         $this->error = false;
 
@@ -101,11 +101,13 @@ class Database
         return $data[0];
     }
 
-    public function count() {
+    public function count(): int
+    {
         return $this->count;
     }
 
-    public function error() {
+    public function error(): bool
+    {
         return $this->error;
     }
 }
