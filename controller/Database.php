@@ -15,8 +15,7 @@ class Database
      */
     private bool $error;
     private int $count;
-    private array $result;
-    private $results;
+    private ?array $results = null;
 
     private function __construct()
     {
@@ -55,7 +54,7 @@ class Database
 
             if ($this->query->execute())
             {
-                $this->result = $this->query->fetchAll(PDO::FETCH_OBJ);
+                $this->results = $this->query->fetchAll(PDO::FETCH_OBJ);
                 $this->count = $this->query->rowCount();
             } else {
                 $this->error = true;
@@ -72,7 +71,7 @@ class Database
 
             $field = $where[0];
             $operator = $where[1];
-            $value = $where[3];
+            $value = $where[2];
 
             if (in_array($operator, $operators))
             {
@@ -92,12 +91,38 @@ class Database
         return $this->action('SELECT *', $table, $where);
     }
 
-    public function results() {
+    public function insert($table, $fields = array())
+    {
+        $keys = array_keys($fields);
+        $values = null;
+        $x = 1;
+
+        foreach ($fields as $field)
+        {
+            $values .= '?';
+            if ($x < count($fields))
+            {
+                $values .= ', ';
+            }
+            $x++;
+        }
+
+        $sql = "INSERT INTO {$table} (`" . implode('`, `', $keys) . "`) VALUES ({$values})";
+
+        if (!$this->query($sql, $fields)->error())
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public function result(): ?array
+    {
         return $this->results;
     }
 
     public function first() {
-        $data = $this->results();
+        $data = $this->result();
         return $data[0];
     }
 

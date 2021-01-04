@@ -2,8 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="932a904e-ea89-4479-a96a-17d9d77e13d7" name="Default Changelist" comment="added pages and started with authentication">
+      <change afterPath="$PROJECT_DIR$/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Session.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Session.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Token.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Token.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scss/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scss/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scss/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scss/style.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scss/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/components/page.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/components/sidebar.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/layouts/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/layouts/dashboard.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +71,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\timbk\Code\visionair-webshop" />
+      <recent name="C:\Users\timbk\Code\visionair-webshop\view" />
       <recent name="C:\Users\timbk\Code\visionair-webshop\view\components" />
       <recent name="C:\Users\timbk\Code\visionair-webshop\view\layouts" />
       <recent name="C:\Users\timbk\Code\visionair-webshop\Models" />
@@ -83,7 +99,8 @@
       <workItem from="1609264986965" duration="2413000" />
       <workItem from="1609319782880" duration="2225000" />
       <workItem from="1609322037601" duration="6398000" />
-      <workItem from="1609329289427" duration="7169000" />
+      <workItem from="1609329289427" duration="7242000" />
+      <workItem from="1609779929956" duration="6132000" />
     </task>
     <task id="LOCAL-00001" summary="added pages and started with authentication">
       <created>1609336354286</created>

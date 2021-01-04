@@ -6,6 +6,7 @@ use app\controller\Config;
 use app\controller\Database;
 use app\controller\Hash;
 use app\controller\Session;
+use app\controller\Cookie;
 
 class User
 {
@@ -18,11 +19,13 @@ class User
     private ?object $data = null;
     private ?Database $database = null;
     private $sessionName;
+    private $cookieName;
 
     public function __construct($user = null)
     {
         $this->database = Database::getInstance();
         $this->sessionName = Config::SESSION_NAME;
+        $this->cookieName = Config::COOKIE_NAME;
 
         if (!$user) {
             if (Session::exists($this->sessionName)) {
@@ -47,9 +50,8 @@ class User
     {
         if ($user)
         {
-            $field = (is_numeric($user)) ? 'id' : 'email';
+            $field = (is_numeric($user)) ? 'id' : 'username';
             $data = $this->database->get('users', array($field, '=', $user));
-
             if ($data->count())
             {
                 $this->data = $data->first();
@@ -59,28 +61,43 @@ class User
         return false;
     }
 
-    public function login(string $email = null, string $password = null, bool $remember = false)
+    public function login(string $email = null, string $password = null, bool $remember = false): bool
     {
-        var_dump($email, $password, $remember);
-//        if (!$email && !$password && $this->exists())
-//        {
-//            Session::put($this->sessionName, $this->data()->id);
-//        } else {
-//            $user = $this->find($email);
+        if(!$email && !$password && $this->exists()) {
+            Session::put($this->sessionName, $this->data()->id);
+        } else {
+            $user = $this->find($email);
+
+            if ($user) {
+                if ($this->data()->password === Hash::make($password, $this->data()->salt)) {
+                    Session::put($this->sessionName, $this->data()->id);
+                    if ($remember) {
+                        $hash = Hash::unique();
+                        $hashCheck = $this->database->get('users_session', array('user_id', '=', $this->data()->id));
+
+                        if (!$hashCheck->count()) {
+                            $this->database->insert('users_session', array(
+                                'user_id' => $this->data()->id,
+                                'hash' => $hash
+                            ));
+                        } else {
+                            $hash = $hashCheck->first()->hash;
+                        }
+
+                        Cookie::put($this->cookieName, $hash, Config::COOKIE_EXPIRY);
+                    }
 //
-//            if ($user)
-//            {
-//                if ($this->data()->password === Hash::make($password, $this->data()->salt))
-//                {
-//                    Session::put($this->sessionName, $this->data()->id);
-//
-//                    if ($remember) {
-//                        $hash = Hash::unique();
-//
-//                    }
-//                }
-//            }
-//        }
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public function logout()
+    {
+        Session::delete($this->sessionName);
+        Cookie::delete($this->cookieName);
     }
 
     public function exists(): bool

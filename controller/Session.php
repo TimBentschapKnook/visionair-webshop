@@ -4,9 +4,25 @@
 namespace app\controller;
 
 
+use app\model\User;
+
 class Session
 {
-    public static function exists($name) {
+    public function __construct()
+    {
+        if(Cookie::exists(Config::COOKIE_NAME) && !self::exists(Config::SESSION_NAME)) {
+            $hash = Cookie::get(Config::COOKIE_NAME);
+            $hashCheck = Database::getInstance()->get('users_session', array('hash', '=', $hash));
+
+            if($hashCheck->count()) {
+                $user = new User($hashCheck->first()->user_id);
+                $user->login();
+            }
+        }
+    }
+
+    public static function exists($name): bool
+    {
         return isset($_SESSION[$name]);
     }
 

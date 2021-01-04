@@ -4,6 +4,8 @@ namespace app\controller;
 
 
 
+use app\model\User;
+
 class Config
 {
     const DB_HOST = 'localhost';
@@ -14,5 +16,10 @@ class Config
     const TOKEN_NAME =  'token';
     const COOKIE_NAME =  'hash';
     const COOKIE_EXPIRY =  604800;
+
+    public function __construct()
+    {
+
+    }
 }
 
