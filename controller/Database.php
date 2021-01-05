@@ -91,7 +91,7 @@ class Database
         return $this->action('SELECT *', $table, $where);
     }
 
-    public function insert($table, $fields = array())
+    public function insert($table, $fields = array()): bool
     {
         $keys = array_keys($fields);
         $values = null;
@@ -114,6 +114,11 @@ class Database
             return true;
         }
         return false;
+    }
+
+    public function delete($table, $where)
+    {
+        return $this->action('DELETE ', $table, $where);
     }
 
     public function result(): ?array

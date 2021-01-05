@@ -5,6 +5,7 @@ namespace app\model;
 use app\controller\Config;
 use app\controller\Database;
 use app\controller\Hash;
+use app\controller\Redirect;
 use app\controller\Session;
 use app\controller\Cookie;
 
@@ -74,7 +75,6 @@ class User
                     if ($remember) {
                         $hash = Hash::unique();
                         $hashCheck = $this->database->get('users_session', array('user_id', '=', $this->data()->id));
-
                         if (!$hashCheck->count()) {
                             $this->database->insert('users_session', array(
                                 'user_id' => $this->data()->id,
@@ -86,18 +86,11 @@ class User
 
                         Cookie::put($this->cookieName, $hash, Config::COOKIE_EXPIRY);
                     }
-//
                     return true;
                 }
             }
         }
         return false;
-    }
-
-    public function logout()
-    {
-        Session::delete($this->sessionName);
-        Cookie::delete($this->cookieName);
     }
 
     public function exists(): bool

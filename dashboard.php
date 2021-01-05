@@ -46,7 +46,7 @@ $user = new User();
                     </a>
                 </li>
                 <li id="signOut">
-                    <a href="?page=view/home.php">
+                    <a href="logout.php">
                         <span class="material-icons">
                             trending_up
                         </span>
@@ -59,14 +59,7 @@ $user = new User();
         <div class="header">
             <div class="container">
                 <div class="col-md-12">
-                    <?php
-                        if ($user->isAuthenticated())
-                        {
-                            ?>
-                            <p>De user is ingelogd</p>
-                            <?php
-                        }
-                    ?>
+                    <!-- Hier moet nog iets van leuke content komen-->
                 </div>
             </div>
         </div>

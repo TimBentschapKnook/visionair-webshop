@@ -14,15 +14,16 @@
 <?php
 
 use app\model\User;
+use app\controller\Redirect;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
 $user = new User();
 
 if (!$user->isAuthenticated()) {
-    require_once "auth.php";
+    Redirect::to('auth.php');
 } else {
-    require_once "dashboard.php";
+    Redirect::to('dashboard.php');
 }
 
 ?>
