@@ -11,11 +11,6 @@ use app\controller\Cookie;
 
 class User
 {
-    private string $firstname;
-    private string $lastname;
-    private string $email;
-    private string $password;
-    private int $phonenumber;
     private bool $isLoggedIn = false;
     private ?object $data = null;
     private ?Database $database = null;
@@ -42,11 +37,6 @@ class User
         }
     }
 
-    public function getFullName(): string
-    {
-        return $this->firstname . ' ' . $this->lastname;
-    }
-
     private function find($user = null): bool
     {
         if ($user)
@@ -62,12 +52,12 @@ class User
         return false;
     }
 
-    public function login(string $email = null, string $password = null, bool $remember = false): bool
+    public function login(string $username = null, string $password = null, bool $remember = false): bool
     {
-        if(!$email && !$password && $this->exists()) {
+        if(!$username && !$password && $this->exists()) {
             Session::put($this->sessionName, $this->data()->id);
         } else {
-            $user = $this->find($email);
+            $user = $this->find($username);
 
             if ($user) {
                 if ($this->data()->password === Hash::make($password, $this->data()->salt)) {

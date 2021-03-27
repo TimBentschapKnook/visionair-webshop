@@ -1,0 +1,6 @@
+Voor het inloggen gebruik de gegevens:
+
+username: 
+user
+wachtwoord:
+geheim

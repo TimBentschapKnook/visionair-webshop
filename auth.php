@@ -27,7 +27,7 @@ if (Input::exists()) {
             {
                 Redirect::to('dashboard.php');
             } else {
-                echo 'Incorrect email or password';
+                echo 'Incorrect username or password';
             }
         } else {
             foreach ($validate->errors() as $error) {
